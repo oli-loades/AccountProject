@@ -29,16 +29,9 @@ public class AccountService {
 	}
 
 	public int getNumAccountsByFirstName(String firstName) {
-		int total = 0;
-		
-		for (Account acc : accounts.values()) {
-			
-			if(acc.getFirstName().equalsIgnoreCase(firstName)) {
-				total++;
-			}
-			
-		}
-
-		return total;
+		return (int) accounts.entrySet()
+				.stream()
+				.filter( a -> a.getValue().getFirstName().equalsIgnoreCase(firstName))
+				.count();		
 	}
 }
