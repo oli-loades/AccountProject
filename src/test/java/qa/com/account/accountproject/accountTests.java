@@ -2,6 +2,9 @@ package qa.com.account.accountproject;
 
 import static org.junit.Assert.*;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+
 import static qa.com.account.accountproject.*;
 
 import org.junit.*;
@@ -34,6 +37,12 @@ public class accountTests {
 		accServ.addAccount(new Account("abc","xyz",1));
 		assertEquals("abc",accServ.getAccount(1).getFirstName());
 		assertEquals(null,accServ.getAccount(2));
+	}
+	
+	@Test 
+	public void accountToJSONTest() {
+			assertEquals("{\"" +"firstName\"" + ":" + "\"abc\"" +"," + "\"surname\"" + ":" + "\"xyz\"" + "," + "\"accNo\"" + ":1" + "}",AccountToJSONConverter.convert(new Account("abc","xyz",1)));
+
 	}
 
 }
