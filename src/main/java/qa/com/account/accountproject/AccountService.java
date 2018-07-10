@@ -1,6 +1,7 @@
 package qa.com.account.accountproject;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class AccountService {
@@ -25,5 +26,19 @@ public class AccountService {
 
 	public Account getAccount(int accNo) {
 		return accounts.get(accNo);
+	}
+
+	public int getNumAccountsByFirstName(String firstName) {
+		int total = 0;
+		
+		for (Account acc : accounts.values()) {
+			
+			if(acc.getFirstName().equalsIgnoreCase(firstName)) {
+				total++;
+			}
+			
+		}
+
+		return total;
 	}
 }

@@ -20,8 +20,9 @@ public class NumAccountTests {
 		accServ.addAccount(new Account("abc","xyz",2));
 		accServ.addAccount(new Account("abc","xyz",3));
 		accServ.addAccount(new Account("test","xyz",4));
-		assertEquals(0,accServ.getNumAccountsByFirstName("test"));
-		assertEquals(1,accServ.getNumAccountsByFirstName("xyz"));
+		
+		assertEquals(1,accServ.getNumAccountsByFirstName("test"));
+		assertEquals(0,accServ.getNumAccountsByFirstName("xyz"));
 		assertEquals(3,accServ.getNumAccountsByFirstName("abc"));
 			
 		
